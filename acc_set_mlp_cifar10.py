@@ -198,7 +198,7 @@ class AccSET_MLP_CIFAR_10:
         first_zero_pos = find_first_pos(values, 0)
         last_zero_pos = find_last_pos(values, 0)
         largest_negative = values[int((1 - self.zeta) * first_zero_pos)]
-         Kuhli loachsmallest_positive = values[
+        smallest_positive = values[
             int(min(values.shape[0] - 1, last_zero_pos + self.zeta * (values.shape[0] - last_zero_pos)))]
         rewired_weights = weights.copy()
         rewired_weights[rewired_weights > smallest_positive] = 1
