@@ -1,0 +1,38 @@
+% This file was created by tikzplotlib v0.9.4.
+\begin{tikzpicture}
+
+\definecolor{color0}{rgb}{0.12156862745098,0.466666666666667,0.705882352941177}
+
+\begin{axis}[
+axis line style={white!80!black},
+tick align=outside,
+title={Model accuracy using CenSET on different Zeta values +zeta\_0.01 on fashion\_mnist dataset},
+x grid style={white!80!black},
+xlabel={epoch},
+xmajorgrids,
+xmajorticks=false,
+xmin=-0.45, xmax=9.45,
+xtick style={color=white!15!black},
+y grid style={white!80!black},
+ylabel={accuracy},
+ymajorgrids,
+ymajorticks=false,
+ymin=0.269939985871315, ymax=0.801460000872612,
+ytick style={color=white!15!black}
+]
+\addplot [semithick, color0]
+table {%
+0 0.294099986553192
+1 0.442699998617172
+2 0.604700028896332
+3 0.69379997253418
+4 0.721099972724915
+5 0.75110000371933
+6 0.751200020313263
+7 0.768299996852875
+8 0.768999993801117
+9 0.777300000190735
+};
+\end{axis}
+
+\end{tikzpicture}
