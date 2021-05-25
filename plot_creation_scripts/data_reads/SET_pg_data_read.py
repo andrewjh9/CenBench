@@ -24,7 +24,7 @@ import collections
 
 cen_means = []
 
-for i in range(0,100):
+for i in range(0,50):
     read_dataset = np.genfromtxt('/media/andrew/Storage/MOD-12-TCS/Research Project/CenBench/results/node_centrality_scores_set/'+str(i)+'PageRank.csv',delimiter='')
     # print(str(i)+"i: ", np.mean(read_dataset))
     cen_means.append(np.mean(read_dataset))
