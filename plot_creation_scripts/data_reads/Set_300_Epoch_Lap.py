@@ -32,4 +32,6 @@ ax2.set_ylabel("Laplacian Centrality", color='r')
 
 plt.xlabel("Epoch")
 # plt.show()
+plt.title("Accuracy vs Laplacian Centrality on FashionMnist")
+
 tikzplotlib.save("plots/tex/lap_vs_accuracy_300_epochs.tex")
