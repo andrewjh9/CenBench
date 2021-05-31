@@ -9,7 +9,8 @@ from scipy.optimize import curve_fit
 # read_dataset_acc = np.genfromtxt('results/SET__fashion_mnist_for_100_epochs_20210529-104007_zeta__accuracy_.csv',delimiter='')
 # read_dataset_lap = np.genfromtxt('results/SET__fashion_mnist_for_100_epochs_20210529-104007_zeta__lap.csv',delimiter='')
 read_dataset_acc = np.genfromtxt('results/SET__fashion_mnist_for_300_epochs_20210529-123942_zeta__accuracy_.csv',delimiter='')
-read_dataset_lap = np.genfromtxt('results/SET__fashion_mnist_for_300_epochs_20210529-123942_zeta__lap.csv',delimiter='')
+read_dataset_lap_fmnist = np.genfromtxt('results/SET__fashion_mnist_for_300_epochs_20210529-123942_zeta__lap.csv',delimiter='')
+read_dataset_lap_cifar100 = np.genfromtxt('results/SET__cifar100_for_100_epochs_20210529-140724_zeta__lap.csv',delimiter='')
 
 
 # https://machinelearningmastery.com/curve-fitting-with-python/
@@ -18,31 +19,31 @@ read_dataset_lap = np.genfromtxt('results/SET__fashion_mnist_for_300_epochs_2021
 # plt.plot(read_dataset_lap, label="Laplacian centrality")
 # plt.plot(read_dataset_acc, label="Accuracy")
 # plt.plot(read_dataset_conn, label="# Connections")
-fig = plt.figure()
-
-ax1 = fig.add_subplot(111)
-ax1.plot(read_dataset_acc)
-ax1.set_ylabel('Accuracy')
+# fig = plt.figure()
 
 # ax1 = fig.add_subplot(111)
-# ax1.plot(read_dataset_conn)
-# ax1.set_ylabel('# Connections')
+# ax1.plot(read_dataset_acc)
+# ax1.set_ylabel('Accuracy')
 
-ax2 = ax1.twinx()
-ax2.plot(read_dataset_lap, 'r-')
-ax2.set_ylabel("Laplacian Centrality", color='r')
+# # ax1 = fig.add_subplot(111)
+# # ax1.plot(read_dataset_conn)
+# # ax1.set_ylabel('# Connections')
+
+# ax2 = ax1.twinx()
+# ax2.plot(read_dataset_lap, 'r-')
+# ax2.set_ylabel("Laplacian Centrality", color='r')
 
 
-plt.xlabel("Epoch")
-plt.title("Accuracy vs Laplacian Centrality on FashionMnist")
-plt.show()
+# plt.xlabel("Epoch")
+# plt.title("Accuracy vs Laplacian Centrality on FashionMnist")
+# plt.show()
 
 # tikzplotlib.save("plots/tex/lap_vs_accuracy_300_epochs.tex")
 
 
 
 x = range(0, 300)
-y = read_dataset_lap
+y = [float(i)/max(read_dataset_lap_fmnist)*100 for i in read_dataset_lap_fmnist]
 
 # define the true objective function
 def objective(x, a, b):
