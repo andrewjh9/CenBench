@@ -4,30 +4,32 @@ import tikzplotlib
 
 
 
-
-read_dataset_0_cifar = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_0laplacian_20210526-171315.csv',delimiter='')
-read_dataset_50_cifar  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_50laplacian_20210526-181455.csv',delimiter='')
-read_dataset_100_cifar  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_100laplacian_20210526-191912.csv',delimiter='')
-read_dataset_150_cifar  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_150laplacian_20210526-202222.csv',delimiter='')
-read_dataset_200_cifar  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_200laplacian_20210526-212648.csv',delimiter='')
-read_dataset_250_cifar  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/cifar10_250laplacian_20210526-222951.csv',delimiter='')
-
-
-read_dataset_0_fminst = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_0laplacian_20210526-233239.csv',delimiter='')
-read_dataset_50_fminst  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_50laplacian_20210527-001743.csv',delimiter='')
-read_dataset_100_fminst  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_100laplacian_20210527-010234.csv',delimiter='')
-read_dataset_150_fminst  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_150laplacian_20210527-014649.csv',delimiter='')
-read_dataset_200_fminst  = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_200laplacian_20210527-023247.csv',delimiter='')
-read_dataset_250_fminst = np.genfromtxt('results/node_centrality_scores_set/exp_26_may_SET/fashion_mnist_250laplacian_20210527-031755.csv',delimiter='')
+read_dataset_0_fminst = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_0__sd_dis_.csv',delimiter='')
+read_dataset_25_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_25__sd_dis_.csv',delimiter='')
+read_dataset_50_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_50__sd_dis_.csv',delimiter='')
+read_dataset_75_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_75__sd_dis_.csv',delimiter='')
+read_dataset_100_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_100__sd_dis_.csv',delimiter='')
+read_dataset_150_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_150__sd_dis_.csv',delimiter='')
+read_dataset_125_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_125__sd_dis_.csv',delimiter='')
+read_dataset_175_fminst  = np.genfromtxt('results/set_epochs_200_recording_dis_sd/SET__fashion_mnist_for_200_epochs_20210603-164315_num_sd_None_cen_dis_lap_epoch_175__sd_dis_.csv',delimiter='')
 
 # read_dataset_set = np.genfromtxt('results/zeta/CenSET_laplacian_accuracy_cifar10_for_100_epochs_20210522-190343_zeta_0.0.csv',delimiter='')
-plt.hist(read_dataset_250_cifar, bins = 50)
+# 30
+plt.hist(read_dataset_175_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="175")
+plt.hist(read_dataset_150_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="150")
+plt.hist(read_dataset_125_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), int(max(read_dataset_125_fminst)) + 0.5, 0.5), label="125")
+plt.hist(read_dataset_100_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="100")
+plt.hist(read_dataset_75_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="75")
+plt.hist(read_dataset_50_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="50")
+# plt.hist(read_dataset_150_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="150")
 
+plt.hist(read_dataset_0_fminst , bins= np.arange(int(min(read_dataset_175_fminst)), 30 + 0.5, 0.5), label="0")
 
+plt.legend( title="At Epoch[#]")
 
 plt.xlabel("Laplacian centrality")
 plt.ylabel("Frequency")
-plt.title("Frequency Distribution of Centrality of Nodes at Epoch 250")
+plt.title("Frequency Distribution of Centrality of Nodes ")
 plt.show()
 
 # tikzplotlib.save("plots/tex/histogram_lap/cifar_250_epochs.tex")
