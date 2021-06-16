@@ -21,19 +21,36 @@ max = max(max(read_dataset_0_fminst),max(read_dataset_25_fminst),max(read_datase
 
 
 
-plt.hist(read_dataset_175_fminst , bins= np.arange(min, max, 0.5), label="175")
-plt.hist(read_dataset_150_fminst , bins= np.arange(min, max, 0.5), label="150")
-plt.hist(read_dataset_125_fminst , bins= np.arange(min, max, 0.5), label="125")
-plt.hist(read_dataset_100_fminst , bins= np.arange(min, max, 0.5), label="100")
-plt.hist(read_dataset_75_fminst , bins= np.arange(min, max, 0.5), label="75")
-plt.hist(read_dataset_50_fminst , bins= np.arange(min, max, 0.5), label="50")
-plt.hist(read_dataset_0_fminst , bins= np.arange(min, max, 0.5), label="0")
+# plt.hist(read_dataset_175_fminst , bins= np.arange(min, max, 0.5), label="175")
+# plt.hist(read_dataset_150_fminst , bins= np.arange(min, max, 0.5), label="150")
+# plt.hist(read_dataset_125_fminst , bins= np.arange(min, max, 0.5), label="125")
+# plt.hist(read_dataset_100_fminst , bins= np.arange(min, max, 0.5), label="100")
+# plt.hist(read_dataset_75_fminst , bins= np.arange(min, max, 0.5), label="75")
+# plt.hist(read_dataset_50_fminst , bins= np.arange(min, max, 0.5), label="50")
+# plt.hist(read_dataset_25_fminst , bins= np.arange(min, max, 0.5), label="25")
+# plt.hist(read_dataset_0_fminst , bins= np.arange(min, max, 0.5), label="0")
+fig, axes = plt.subplots(nrows=2,ncols=4, sharex=True)
 
-plt.legend( title="At Epoch[#]")
+axes[0][0].hist(read_dataset_0_fminst , bins= np.arange(min, max, 0.5), label="0", color="k")
+axes[0][1].hist(read_dataset_25_fminst , bins= np.arange(min, max, 0.5), label="25", color="k")        
+axes[0][2].hist(read_dataset_50_fminst , bins= np.arange(min, max, 0.5), label="50", color="k")         
+axes[0][3].hist(read_dataset_75_fminst , bins= np.arange(min, max, 0.5), label="75", color="k")       
+
+axes[1][0].hist(read_dataset_100_fminst , bins= np.arange(min, max, 0.5), label="100", color="k")    
+axes[1][1].hist(read_dataset_125_fminst , bins= np.arange(min, max, 0.5), label="125", color="k")
+axes[1][2].hist(read_dataset_150_fminst , bins= np.arange(min, max, 0.5), label="150", color="k")    
+axes[1][3].hist(read_dataset_175_fminst , bins= np.arange(min, max, 0.5), label="175", color="k")
 
 plt.xlabel("Laplacian centrality")
 plt.ylabel("Frequency")
-plt.title("Frequency Distribution of Laplacian Centrality of Nodes in SET on FashionMNIST")
+# plt.title("Frequency Distribution of Laplacian Centrality of Nodes in MLP on FashionMNIST at Epoch 175")
+plt.tight_layout()
+
 # plt.show()
 
-tikzplotlib.save("plots/tex/histogram_lap/SET_historgram_fashionMNIST.tex")
+
+
+# plt.title("Frequency Distribution of Laplacian Centrality of Nodes in SET on FashionMNIST at Epoch 175")
+# plt.show()
+# plt.savefig("plots/tex/histogram_lap/SET_historgram_fashionMNIST.svg")
+plt.savefig("plots/svg/histogram_lap/SET_historgram_fashionMNIST.svg")
