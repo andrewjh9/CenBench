@@ -18,10 +18,10 @@ for i in range(0, 200):
 print("final: ")
 print("$"+str(read_dataset_mu[len(read_dataset_mu)-1])+ "\pm "+str(read_dataset_sd[len(read_dataset_sd)-1])+"$")
 
-read_data_acc = np.genfromtxt('results/find_sd_prune_value/fashion/CenSET_laplacian_fashion_mnist_for_200_epochs_20210608-171127_num_sd_2.7000000000000006_accuracy__narrow_search_missing_valuses_finding_opti_sd_removal_rate.csv',delimiter='')
+read_data_acc = np.genfromtxt('results/find_sd_prune_value/fashion/CenSET_laplacian_fashion_mnist_for_200_epochs_20210608-160538_num_sd_2.6000000000000005_accuracy__narrow_search_missing_valuses_finding_opti_sd_removal_rate.csv',delimiter='')
 
-print(read_data_acc[-1])
+print(np.mean(read_data_acc[-10:]))
 
-read_data_conn = np.genfromtxt('results/find_sd_prune_value/fashion/CenSET_laplacian_fashion_mnist_for_200_epochs_20210608-171127_num_sd_2.7000000000000006_connections__narrow_search_missing_valuses_finding_opti_sd_removal_rate.csv',delimiter='')
+read_data_conn = np.genfromtxt('results/find_sd_prune_value/fashion/CenSET_laplacian_fashion_mnist_for_200_epochs_20210608-160538_num_sd_2.6000000000000005_connections__narrow_search_missing_valuses_finding_opti_sd_removal_rate.csv',delimiter='')
 
-print(read_data_conn[-1])
+print(np.mean(read_data_conn[-10:]))

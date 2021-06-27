@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import tikzplotlib
+import scipy.stats as stats
 
-
-axis_label_size = 14
+axis_label_size = 18
 font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : axis_label_size}
@@ -39,89 +39,62 @@ min = min(min(read_dataset_0_cifar10),min(read_dataset_25_cifar10),min(read_data
 
 min = -20
 
-# max = max(read_dataset_375_cifar10)
-# min = min(read_dataset_375_cifar10)
-# max = int(max)
-# min = int(min)
 internal = 0.5
+plt.xlim(-25, 25)
+density = stats.gaussian_kde(read_dataset_0_cifar10)
+plt.plot(read_dataset_0_cifar10, density(read_dataset_0_cifar10), label="0")
 
-# plt.hist(read_dataset_375_cifar10 , bins= np.arange(min, max, internal), label="375")
-# plt.hist(read_dataset_350_cifar10 , bins= np.arange(min, max, internal), label="350")
-# plt.hist(read_dataset_325_cifar10 , bins= np.arange(min, max, internal), label="325")
-# plt.hist(read_dataset_300_cifar10 , bins= np.arange(min, max, internal), label="300")
-# plt.hist(read_dataset_275_cifar10 , bins= np.arange(min, max, internal), label="275")
-# plt.hist(read_dataset_250_cifar10 , bins= np.arange(min, max, internal), label="250")   
-# plt.hist(read_dataset_225_cifar10 , bins= np.arange(min, max, internal), label="225")
-# plt.hist(read_dataset_200_cifar10 , bins= np.arange(min, max, internal), label="200")
-# plt.hist(read_dataset_175_cifar10 , bins= np.arange(min, max, internal), label="175")
-# plt.hist(read_dataset_150_cifar10 , bins= np.arange(min, max, internal), label="150")
-# plt.hist(read_dataset_125_cifar10 , bins= np.arange(min, max, internal), label="125")
-# plt.hist(read_dataset_100_cifar10 , bins= np.arange(min, max, internal), label="100")
-# plt.hist(read_dataset_75_cifar10 , bins= np.arange(min, max, internal), label="75")
-# plt.hist(read_dataset_50_cifar10 , bins= np.arange(min, max, internal), label="50")
-# plt.hist(read_dataset_25_cifar10 , bins= np.arange(min, max, internal), label="25")
+density = stats.gaussian_kde(read_dataset_25_cifar10)
+plt.plot(read_dataset_25_cifar10, density(read_dataset_25_cifar10), label="25")
 
-# plt.hist(read_dataset_0_cifar10 , bins= np.arange(min, max, internal), label="0")
+density = stats.gaussian_kde(read_dataset_50_cifar10)
+plt.plot(read_dataset_50_cifar10, density(read_dataset_50_cifar10), label="50")
 
-# plt.legend( title="At Epoch[#]")
+density = stats.gaussian_kde(read_dataset_75_cifar10)
+plt.plot(read_dataset_75_cifar10, density(read_dataset_75_cifar10), label="75")
 
-fig, axes = plt.subplots(nrows=4,ncols=4, sharex=True)
+density = stats.gaussian_kde(read_dataset_100_cifar10)
+plt.plot(read_dataset_100_cifar10, density(read_dataset_100_cifar10), label="100")
 
+density = stats.gaussian_kde(read_dataset_125_cifar10)
+plt.plot(read_dataset_125_cifar10, density(read_dataset_125_cifar10), label="125")
 
-axes[0][0].hist(read_dataset_0_cifar10 , bins= np.arange(min, max, 0.5), label="0", color="k")
-axes[0][0].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_150_cifar10)
+plt.plot(read_dataset_150_cifar10, density(read_dataset_150_cifar10), label="150")
 
-axes[0][1].hist(read_dataset_25_cifar10 , bins= np.arange(min, max, 0.5), label="25", color="k") 
-axes[0][1].set_ylim([0,700])   
+density = stats.gaussian_kde(read_dataset_175_cifar10)
+plt.plot(read_dataset_175_cifar10, density(read_dataset_175_cifar10), label="175")
 
-axes[0][2].hist(read_dataset_50_cifar10 , bins= np.arange(min, max, 0.5), label="50", color="k")
-axes[0][2].set_ylim([0,700])    
+density = stats.gaussian_kde(read_dataset_200_cifar10)
+plt.plot(read_dataset_75_cifar10, density(read_dataset_200_cifar10), label="200")
 
-axes[0][3].hist(read_dataset_75_cifar10 , bins= np.arange(min, max, 0.5), label="75", color="k")       
-axes[0][3].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_225_cifar10)
+plt.plot(read_dataset_100_cifar10, density(read_dataset_225_cifar10), label="225")
 
-axes[1][0].hist(read_dataset_100_cifar10 , bins= np.arange(min, max, 0.5), label="100", color="k")    
-axes[1][0].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_250_cifar10)
+plt.plot(read_dataset_125_cifar10, density(read_dataset_250_cifar10), label="250")
 
-axes[1][1].hist(read_dataset_125_cifar10 , bins= np.arange(min, max, 0.5), label="125", color="k")
-axes[1][1].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_275_cifar10)
+plt.plot(read_dataset_150_cifar10, density(read_dataset_275_cifar10), label="275")
 
-axes[1][2].hist(read_dataset_150_cifar10 , bins= np.arange(min, max, 0.5), label="150", color="k")   
-axes[1][2].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_300_cifar10)
+plt.plot(read_dataset_175_cifar10, density(read_dataset_300_cifar10), label="300")
 
-axes[1][3].hist(read_dataset_175_cifar10 , bins= np.arange(min, max, 0.5), label="175", color="k")
-axes[1][3].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_325_cifar10)
+plt.plot(read_dataset_175_cifar10, density(read_dataset_325_cifar10), label="325")
 
-axes[2][0].hist(read_dataset_200_cifar10 , bins= np.arange(min, max, 0.5), label="200", color="k")   
-axes[2][0].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_350_cifar10)
+plt.plot(read_dataset_175_cifar10, density(read_dataset_350_cifar10), label="350")
 
-axes[2][1].hist(read_dataset_225_cifar10 , bins= np.arange(min, max, 0.5), label="225", color="k")
-axes[2][1].set_ylim([0,700])
+density = stats.gaussian_kde(read_dataset_375_cifar10)
+plt.plot(read_dataset_175_cifar10, density(read_dataset_375_cifar10), label="375")
 
-axes[2][2].hist(read_dataset_250_cifar10 , bins= np.arange(min, max, 0.5), label="250", color="k")   
-axes[2][2].set_ylim([0,700])
-
-axes[2][3].hist(read_dataset_275_cifar10 , bins= np.arange(min, max, 0.5), label="275", color="k")
-axes[2][3].set_ylim([0,700])
-
-axes[3][0].hist(read_dataset_300_cifar10 , bins= np.arange(min, max, 0.5), label="300", color="k")   
-axes[3][0].set_ylim([0,700])
-
-axes[3][1].hist(read_dataset_325_cifar10 , bins= np.arange(min, max, 0.5), label="325", color="k")
-axes[3][1].set_ylim([0,700])
-
-axes[3][2].hist(read_dataset_350_cifar10 , bins= np.arange(min, max, 0.5), label="350", color="k")   
-axes[3][2].set_ylim([0,700])
-
-axes[3][3].hist(read_dataset_375_cifar10 , bins= np.arange(min, max, 0.5), label="375", color="k")
-axes[3][3].set_ylim([0,700])
-# plt.set_ylim([0,700])
 
 plt.xlabel("Laplacian centrality", fontsize=axis_label_size-2)
-plt.ylabel("Frequency", fontsize=axis_label_size-2)
+plt.ylabel("Probability density", fontsize=axis_label_size-2)
 # plt.title("Frequency Distribution of Laplacian Centrality of Nodes in MLP on FashionMNIST at Epoch 175")
-plt.tight_layout()
+plt.legend(title="Epochs[#]", ncol=2, prop={'size': 12})
+plt.grid()
+# plt.show()              
 
-# plt.show()
-
-plt.savefig("plots/svg/histogram_lap/mlp_historgram_cfiar10.svg")
+plt.savefig("plots/svg/histogram_lap/mlp_historgram_cfiar10_line.svg")

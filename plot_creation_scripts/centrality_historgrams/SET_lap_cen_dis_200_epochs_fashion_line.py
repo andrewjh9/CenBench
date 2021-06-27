@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import tikzplotlib
+import scipy.stats as stats
 
-
-axis_label_size = 16
+axis_label_size = 18
 font = {'family' : 'normal',
         'weight' : 'bold',
         'size'   : axis_label_size}
@@ -21,34 +21,39 @@ read_dataset_175_fminst  = np.genfromtxt('results/base_line_set/fashion/SET__fas
 min = min(min(read_dataset_0_fminst),min(read_dataset_25_fminst),min(read_dataset_50_fminst),min(read_dataset_75_fminst),min(read_dataset_100_fminst),min(read_dataset_125_fminst),min(read_dataset_150_fminst),min(read_dataset_175_fminst))
 max = max(max(read_dataset_0_fminst),max(read_dataset_25_fminst),max(read_dataset_50_fminst),max(read_dataset_75_fminst),max(read_dataset_100_fminst),max(read_dataset_125_fminst),max(read_dataset_150_fminst),max(read_dataset_175_fminst))
 
+internal = 0.5
+plt.xlim(-10, 10)
+plt.ylim(0, 1.2)
+density = stats.gaussian_kde(read_dataset_0_fminst)
+plt.plot(read_dataset_0_fminst, density(read_dataset_0_fminst), label="0")
 
+density = stats.gaussian_kde(read_dataset_25_fminst)
+plt.plot(read_dataset_25_fminst, density(read_dataset_25_fminst), label="25")
 
+density = stats.gaussian_kde(read_dataset_50_fminst)
+plt.plot(read_dataset_50_fminst, density(read_dataset_50_fminst), label="50")
 
+density = stats.gaussian_kde(read_dataset_75_fminst)
+plt.plot(read_dataset_75_fminst, density(read_dataset_75_fminst), label="75")
 
-# plt.hist(read_dataset_175_fminst , bins= np.arange(min, max, 0.5), label="175")
-# plt.hist(read_dataset_150_fminst , bins= np.arange(min, max, 0.5), label="150")
-# plt.hist(read_dataset_125_fminst , bins= np.arange(min, max, 0.5), label="125")
-# plt.hist(read_dataset_100_fminst , bins= np.arange(min, max, 0.5), label="100")
-# plt.hist(read_dataset_75_fminst , bins= np.arange(min, max, 0.5), label="75")
-# plt.hist(read_dataset_50_fminst , bins= np.arange(min, max, 0.5), label="50")
-# plt.hist(read_dataset_25_fminst , bins= np.arange(min, max, 0.5), label="25")
-# plt.hist(read_dataset_0_fminst , bins= np.arange(min, max, 0.5), label="0")
-fig, axes = plt.subplots(nrows=2,ncols=4, sharex=True)
+density = stats.gaussian_kde(read_dataset_100_fminst)
+plt.plot(read_dataset_100_fminst, density(read_dataset_100_fminst), label="100")
 
-axes[0][0].hist(read_dataset_0_fminst , bins= np.arange(min, max, 0.5), label="0", color="k")
-axes[0][1].hist(read_dataset_25_fminst , bins= np.arange(min, max, 0.5), label="25", color="k")        
-axes[0][2].hist(read_dataset_50_fminst , bins= np.arange(min, max, 0.5), label="50", color="k")         
-axes[0][3].hist(read_dataset_75_fminst , bins= np.arange(min, max, 0.5), label="75", color="k")       
+density = stats.gaussian_kde(read_dataset_125_fminst)
+plt.plot(read_dataset_125_fminst, density(read_dataset_125_fminst), label="125")
 
-axes[1][0].hist(read_dataset_100_fminst , bins= np.arange(min, max, 0.5), label="100", color="k")    
-axes[1][1].hist(read_dataset_125_fminst , bins= np.arange(min, max, 0.5), label="125", color="k")
-axes[1][2].hist(read_dataset_150_fminst , bins= np.arange(min, max, 0.5), label="150", color="k")    
-axes[1][3].hist(read_dataset_175_fminst , bins= np.arange(min, max, 0.5), label="175", color="k")
+density = stats.gaussian_kde(read_dataset_150_fminst)
+plt.plot(read_dataset_150_fminst, density(read_dataset_150_fminst), label="150")
+
+density = stats.gaussian_kde(read_dataset_175_fminst)
+plt.plot(read_dataset_175_fminst, density(read_dataset_175_fminst), label="175")
 
 plt.xlabel("Laplacian centrality", fontsize=axis_label_size-2)
-plt.ylabel("Frequency", fontsize=axis_label_size-2)
+plt.ylabel("Probability density", fontsize=axis_label_size-2)
+plt.legend(title="Epochs[#]",loc='upper right')
+plt.grid()
 # plt.title("Frequency Distribution of Laplacian Centrality of Nodes in MLP on FashionMNIST at Epoch 175")
-plt.tight_layout()
+# plt.tight_layout()
 
 # plt.show()
 
@@ -57,4 +62,4 @@ plt.tight_layout()
 # plt.title("Frequency Distribution of Laplacian Centrality of Nodes in SET on FashionMNIST at Epoch 175")
 # plt.show()
 # plt.savefig("plots/tex/histogram_lap/SET_historgram_fashionMNIST.svg")
-plt.savefig("plots/svg/histogram_lap/SET_historgram_fashionMNIST.svg")
+plt.savefig("plots/svg/histogram_lap/SET_historgram_fashionMNIST_line.svg")

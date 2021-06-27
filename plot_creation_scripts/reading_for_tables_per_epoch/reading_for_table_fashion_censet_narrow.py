@@ -29,15 +29,17 @@ dataset_prune_lv_2p9_acc = np.genfromtxt('results/find_sd_prune_value/fashion/Ce
 dataset_prune_lv_3_acc = np.genfromtxt('results/find_sd_prune_value/fashion/CenSET_laplacian_fashion_mnist_for_200_epochs_20210609-180920_num_sd_3.0_accuracy__narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
 
 
-print(np.mean(dataset_prune_lv_2_acc)*100)
-print(np.mean(dataset_prune_lv_2p1_acc)*100)
-print(np.mean(dataset_prune_lv_2p2_acc)*100)
-print(np.mean(dataset_prune_lv_2p3_acc)*100)
-print(np.mean(dataset_prune_lv_2p4_acc)*100)
-print(np.mean(dataset_prune_lv_2p5_acc)*100)
-print(np.mean(dataset_prune_lv_2p6_acc)*100)
-print(np.mean(dataset_prune_lv_2p7_acc)*100)
-print(np.mean(dataset_prune_lv_2p8_acc)*100)
-print(np.mean(dataset_prune_lv_2p9_acc)*100)
-print(np.mean(dataset_prune_lv_3_acc)*100)
+print(np.mean(dataset_prune_lv_2_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p1_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p2_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p3_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p4_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p5_acc[-10:])*100)
+
+print(np.mean(dataset_prune_lv_2p6_acc[-10:])*100)
+
+print(np.mean(dataset_prune_lv_2p7_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p8_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_2p9_acc[-10:])*100)
+print(np.mean(dataset_prune_lv_3_acc[-10:])*100)
 

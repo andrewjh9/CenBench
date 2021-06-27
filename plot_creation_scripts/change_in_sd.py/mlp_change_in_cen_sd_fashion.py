@@ -6,8 +6,8 @@ read_dataset_cen_sd = np.genfromtxt('results/base_line_MLP/fashion/MLP__fashion_
 
 plt.plot(read_dataset_cen_sd)
 plt.xlabel("Epoch[\#]")
-plt.ylabel("\sigma of Laplacian Centrality")
-plt.title("\sigma of Laplacian Centrality MLP on FashionMNIST")
+plt.ylabel("\sigma of Laplacian centrality distribution")
+# plt.title("\sigma of Laplacian Centrality MLP on FashionMNIST")
 # plt.show()
-
-tikzplotlib.save("plots/tex/sd/mlp_fashion_sd.tex")
+plt.savefig("plots/svg/sd/")
+# tikzplotlib.save("plots/tex/sd/mlp_fashion_sd.tex")

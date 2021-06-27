@@ -6,8 +6,7 @@ import tikzplotlib
 
 
 
-dataset_prune_lv_2_acc = np.genfromtxt('results/find_sd_prune_value/cifar10/semi_narrow/CenSET_laplacian_cifar10_for_400_epochs_20210610-153741_num_sd_2.0_accuracy__semi_narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
-dataset_prune_lv_2p4_acc = np.genfromtxt('results/find_sd_prune_value/cifar10/semi_narrow/CenSET_laplacian_cifar10_for_400_epochs_20210610-211454_num_sd_2.4_accuracy__semi_narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
+
 dataset_prune_lv_2p8_acc = np.genfromtxt('results/find_sd_prune_value/cifar10/semi_narrow/CenSET_laplacian_cifar10_for_400_epochs_20210611-125825_num_sd_2.8_accuracy__semi_narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
 dataset_prune_lv_3p2_acc = np.genfromtxt('results/find_sd_prune_value/cifar10/semi_narrow/CenSET_laplacian_cifar10_for_400_epochs_20210612-180514_num_sd_3.2_accuracy__semi_narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
 dataset_prune_lv_3p6_acc = np.genfromtxt('results/find_sd_prune_value/cifar10/semi_narrow/CenSET_laplacian_cifar10_for_400_epochs_20210612-234033_num_sd_3.6_accuracy__semi_narrow_search_finding_opti_sd_removal_rate.csv', delimiter='')
